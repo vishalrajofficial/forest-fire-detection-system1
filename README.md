@@ -12,14 +12,14 @@ To run the project, you will need Python 3 and the following libraries:
 
 To install the required libraries, run the following command:
 
-pip install -r requirements.txt
+`pip install -r requirements.txt`
 
 
 ## Usage
 
 To use the model, simply run the `predict.py` script and provide the environmental variables as command line arguments. For example:
 
-python predict.py --temperature 25 --humidity 70 --oxygen 10
+`python predict.py --temperature 25 --humidity 70 --oxygen 10`
 
 
 This will output the probability of a forest fire occurring based on the provided variables.
