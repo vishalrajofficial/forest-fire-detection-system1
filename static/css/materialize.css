@@ -3,6 +3,9 @@
  * Copyright 2014-2017 Materialize
  * MIT License (https://raw.githubusercontent.com/Dogfalo/materialize/master/LICENSE)
  */
+ *, *:before, *:after{
+  background-color: #4d4d4d;
+}
 .materialize-red {
   background-color: #e51c23 !important;
 }
@@ -1659,11 +1662,11 @@
 }
 
 .orange {
-  background-color: #ff9800 !important;
+  background-color: #14ed14 !important;
 }
 
 .orange-text {
-  color: #ff9800 !important;
+  color: #81b956 !important;
 }
 
 .orange.lighten-5 {
@@ -5523,6 +5526,7 @@ button.btn-floating {
 }
 
 .btn-large {
+  border-radius: 45px;
   height: 54px;
   line-height: 54px;
   font-size: 15px;
