@@ -1,44 +1,36 @@
-from flask import Flask, request, url_for, redirect, render_template
-import pickle
 import numpy as np
+from flask import Flask, request, render_template
+import pickle
 
 app = Flask(__name__)
+model = pickle.load(open('model.pkl', 'rb'))
 
-model = pickle.load(open("model.pkl", "rb"))
+@app.route('/')
+def home():
+    return render_template('index.html')
 
+@app.route('/predict_page')
+def predict_page():
+    return render_template('predict.html')
 
-@app.route("/")
-def hello_world():
-    return render_template("forest_fire.html")
-
-
-@app.route("/predict", methods=["POST", "GET"])
+@app.route('/predict', methods=['POST'])
 def predict():
-    int_features = [int(x) for x in request.form.values()]
-    final = [np.array(int_features)]
+    '''
+    For rendering results on HTML GUI
+    '''
+    try:
+        int_features = [int(x) for x in request.form.values()]
+        final_features = [np.array(int_features)]
+        prediction = model.predict_proba(final_features)
 
-    print(int_features)
-    print(final)
-    prediction = model.predict_proba(final)
-    output = "{0:.{1}f}".format(prediction[0][1], 2)
+        output = prediction[0][1]
 
-    if output > str(0.5):
-        return render_template(
-            "forest_fire.html",
-            pred="Your Forest is in Danger.\nProbability of fire occuring is {}".format(
-                output
-            ),
-            b="Forest Department",
-        )
-    else:
-        return render_template(
-            "forest_fire.html",
-            pred="Your Forest is safe.\n Probability of fire occuring is {}".format(
-                output
-            ),
-            b="Your Forest is Safe for now",
-        )
-
+        if output > 0.5:
+            return render_template('predict.html', pred=f'You are in DANGER, Probability of fire is {output:.2f}')
+        else:
+            return render_template('predict.html', pred=f'You are SAFE, Probability of fire is {output:.2f}')
+    except Exception as e:
+        return render_template('predict.html', pred=f'Error processing input: {e}')
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    app.run(port=5000, debug=True)

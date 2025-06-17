@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forest Fire Prediction</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}?v=4">
+</head>
+<body>
+    <div class="hero-section">
+        <!-- Animated background particles -->
+        <div class="particles">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        
+        <div class="container">
+            <h1 class="title">
+                <span class="title-line">Forest Fire</span>
+                <span class="title-line">Prediction</span>
+            </h1>
+            
+            <div class="illustration">
+                <!-- Background Sky -->
+                <svg class="sky" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Stars -->
+                    <circle cx="100" cy="50" r="1" fill="#ffffff" opacity="0.5"/>
+                    <circle cx="200" cy="80" r="1.5" fill="#ffffff" opacity="0.7"/>
+                    <circle cx="350" cy="60" r="1" fill="#ffffff" opacity="0.6"/>
+                    <circle cx="500" cy="100" r="1" fill="#ffffff" opacity="0.5"/>
+                    <circle cx="650" cy="70" r="1.5" fill="#ffffff" opacity="0.8"/>
+                    <circle cx="750" cy="90" r="1" fill="#ffffff" opacity="0.6"/>
+                </svg>
+                
+                <!-- Forest Background -->
+                <svg class="forest" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Mountain silhouettes -->
+                    <path d="M0,400 L100,300 L200,350 L300,250 L400,320 L500,280 L600,340 L700,290 L800,350 L800,600 L0,600 Z" fill="#0d2818" opacity="0.5"/>
+                    
+                    <!-- Forest layers -->
+                    <path d="M0,600 L0,400 C50,380 100,350 150,370 C200,390 250,360 300,380 C350,400 400,370 450,390 C500,410 550,380 600,400 C650,420 700,390 750,410 C800,430 800,600 Z" fill="#1a3d2e"/>
+                    <path d="M0,600 L0,450 C80,430 120,400 180,420 C240,440 280,410 340,430 C400,450 460,420 520,440 C580,460 640,430 700,450 C760,470 800,450 800,600 Z" fill="#0f2818"/>
+                    
+                    <!-- Detailed tree shapes -->
+                    <g class="trees">
+                        <path d="M100,500 L80,450 L60,500 Z M90,480 L75,440 L60,480 Z" fill="#1a3d2e"/>
+                        <path d="M200,480 L180,430 L160,480 Z M190,460 L175,420 L160,460 Z" fill="#0f2818"/>
+                        <path d="M300,490 L280,440 L260,490 Z M290,470 L275,430 L260,470 Z" fill="#1a3d2e"/>
+                        <path d="M400,485 L380,435 L360,485 Z" fill="#15312a"/>
+                        <path d="M500,500 L480,450 L460,500 Z M490,480 L475,440 L460,480 Z" fill="#0f2818"/>
+                        <path d="M600,480 L580,430 L560,480 Z M590,460 L575,420 L560,460 Z" fill="#1a3d2e"/>
+                        <path d="M700,495 L680,445 L660,495 Z" fill="#0f2818"/>
+                    </g>
+                </svg>
+                
+                <!-- Smoke effect -->
+                <svg class="smoke" viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
+                    <g opacity="0.3">
+                        <circle cx="100" cy="200" r="40" fill="#666">
+                            <animate attributeName="cy" from="200" to="50" dur="8s" repeatCount="indefinite"/>
+                            <animate attributeName="r" from="40" to="60" dur="8s" repeatCount="indefinite"/>
+                            <animate attributeName="opacity" from="0.3" to="0" dur="8s" repeatCount="indefinite"/>
+                        </circle>
+                        <circle cx="80" cy="220" r="30" fill="#777">
+                            <animate attributeName="cy" from="220" to="70" dur="9s" repeatCount="indefinite"/>
+                            <animate attributeName="r" from="30" to="50" dur="9s" repeatCount="indefinite"/>
+                            <animate attributeName="opacity" from="0.3" to="0" dur="9s" repeatCount="indefinite"/>
+                        </circle>
+                        <circle cx="120" cy="210" r="35" fill="#666">
+                            <animate attributeName="cy" from="210" to="60" dur="10s" repeatCount="indefinite"/>
+                            <animate attributeName="r" from="35" to="55" dur="10s" repeatCount="indefinite"/>
+                            <animate attributeName="opacity" from="0.3" to="0" dur="10s" repeatCount="indefinite"/>
+                        </circle>
+                    </g>
+                </svg>
+                
+                <!-- Enhanced Fire -->
+                <svg class="fire" viewBox="0 0 200 250" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <radialGradient id="fireGradient" cx="50%" cy="80%">
+                            <stop offset="0%" style="stop-color:#ffd23d;stop-opacity:1" />
+                            <stop offset="50%" style="stop-color:#f7931e;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#ff6b35;stop-opacity:1" />
+                        </radialGradient>
+                    </defs>
+                    
+                    <!-- Outer flame -->
+                    <path d="M100,250 C40,250 0,210 0,150 C0,120 10,90 30,70 C40,60 50,50 60,45 C65,70 75,85 90,95 C85,80 80,60 80,40 C80,20 90,5 100,0 C110,5 120,20 120,40 C120,60 115,80 110,95 C125,85 135,70 140,45 C150,50 160,60 170,70 C190,90 200,120 200,150 C200,210 160,250 100,250 Z" fill="#ff6b35" class="flame-outer"/>
+                    
+                    <!-- Middle flame -->
+                    <path d="M100,230 C50,230 20,200 20,150 C20,130 25,110 35,95 C40,90 45,85 50,82 C53,95 58,105 68,112 C65,102 62,88 62,75 C62,60 68,48 75,45 C80,50 85,60 85,75 C85,88 82,102 79,112 C89,105 94,95 97,82 C102,85 107,90 112,95 C122,110 127,130 127,150 C127,200 100,230 75,230 Z" fill="#f7931e" class="flame-middle"/>
+                    
+                    <!-- Inner flame -->
+                    <path d="M100,200 C70,200 50,180 50,150 C50,135 53,122 58,112 C60,110 62,108 64,107 C65,115 67,120 72,124 C70,118 68,110 68,102 C68,95 71,89 75,87 C79,89 82,95 82,102 C82,110 80,118 78,124 C83,120 85,115 86,107 C88,108 90,110 92,112 C97,122 100,135 100,150 C100,180 85,200 70,200 Z" fill="url(#fireGradient)" class="flame-inner"/>
+                    
+                    <!-- Embers -->
+                    <circle cx="90" cy="240" r="3" fill="#ff6b35" opacity="0.8">
+                        <animate attributeName="cy" from="240" to="220" dur="2s" repeatCount="indefinite" begin="0s"/>
+                        <animate attributeName="opacity" from="0.8" to="0" dur="2s" repeatCount="indefinite" begin="0s"/>
+                    </circle>
+                    <circle cx="110" cy="245" r="2" fill="#ffd23d" opacity="0.8">
+                        <animate attributeName="cy" from="245" to="225" dur="2.5s" repeatCount="indefinite" begin="0.5s"/>
+                        <animate attributeName="opacity" from="0.8" to="0" dur="2.5s" repeatCount="indefinite" begin="0.5s"/>
+                    </circle>
+                </svg>
+            </div>
+            
+            <div class="button-container">
+                <a href="/predict_page" class="cta-button">
+                    <span class="button-text">Check Probability</span>
+                    <span class="button-icon">→</span>
+                </a>
+                <p class="subtitle">Predict forest fire risk in your area using AI</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
